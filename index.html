@@ -115,14 +115,14 @@
                 player.setVelocityY(-500);
                 // 使用tweens補間動畫設計翻轉效果
                 this.tweens.add({
+                    angle: flipDirection,
                     targets: player,
-                    angle: 360,
                     duration: 600, // 翻轉時間設定為0.6 秒
                     ease: 'Cubic.easeOut', // 使用easeOut速率曲線
                     onComplete: () => { // 翻轉完成後執行
                         player.setAngle(0); // 回復原本玩家角度
                         isFlipping = false; // 重置翻轉狀態
-                        angle: flipDirection;
+                        
                     }
                 });
             }
