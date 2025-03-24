@@ -111,11 +111,13 @@
             // 增加判斷是否翻轉中
             if (cursors.up.isDown && isTouch && !isFlipping && (cursors.left.isDown || cursors.right.isDown)) {
                 isFlipping = true;
-                const flipDirection = cursors.right.isDown ? 360 : -360;
+            
+                
                 player.setVelocityY(-500);
                 // 使用tweens補間動畫設計翻轉效果
                 this.tweens.add({
-                    angle: flipDirection,
+                    //判斷往左或往右翻
+                    angle: cursors.right.isDown ? 360 : -360,
                     targets: player,
                     duration: 600, // 翻轉時間設定為0.6 秒
                     ease: 'Cubic.easeOut', // 使用easeOut速率曲線
